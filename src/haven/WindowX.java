@@ -8,6 +8,7 @@ import static haven.PUtils.*;
 public class WindowX extends Window {
     public static final Decorator BIG = new OldSchool();
     public static final Decorator SMALL = new Slim();
+	public static final Decorator Black = new Slim2();
     
     private final CFG.Observer<Theme> updateDecorator = this::updateDecorator;
     
@@ -140,12 +141,14 @@ public class WindowX extends Window {
 		return BIG;
 	    case Slim:
 		return SMALL;
+	    case Slim2:
+		return SMALL;
 	}
 	return null;
     }
     
     enum DecoratorType {
-	Big, Slim;
+	Big, Slim, Slim2;
     }
     
     interface Decorator {
@@ -273,6 +276,8 @@ public class WindowX extends Window {
 	}
     }
     
+	public static class Slim2 extends Slim{}
+
     private static class OldSchool implements Decorator {
 	
 	@Override
